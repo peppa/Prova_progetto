@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-04 12:33:20
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-21 16:40:12
          compiled from "Smarty_dir\templates\loggedIn.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1699254804680e2f1e7-78092252%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '43d3ec3d490bce2e173697df9d367dc40f6b712c' => 
     array (
       0 => 'Smarty_dir\\templates\\loggedIn.tpl',
-      1 => 1417344724,
+      1 => 1419176333,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.18',
+  'unifunc' => 'content_54804680e39368_44432957',
   'variables' => 
   array (
     'username' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.18',
-  'unifunc' => 'content_54804680e39368_44432957',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_54804680e39368_44432957')) {function content_54804680e39368_44432957($_smarty_tpl) {?><div>
 	<form method="POST" action="index.php?control=logout">
