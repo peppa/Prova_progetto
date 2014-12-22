@@ -1,15 +1,5 @@
 <?php
 
-//NON UTILIZZATA
-
-require_once "./Classes/Controller/CHome.php";
-require_once "./Classes/Controller/CLogin.php";
-require_once "./Classes/Controller/CPatientsDB.php";
-require_once "./Classes/Controller/CRegistration.php";
-require_once "./Classes/View/VClinica.php";
-require_once "./Classes/Utility/USingleton.php";
-require_once "./Classes/Utility/USession.php";
-require_once "./Classes/Foundation/FDatabase.php";  //i require li fa l'autoload
 
 //rinominare cclinica in chome
 class CClinica {  

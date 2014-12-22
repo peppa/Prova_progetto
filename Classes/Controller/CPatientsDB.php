@@ -38,57 +38,9 @@ class CPatientsDB{
 
 			default:
 			$this->showHomePage();   
-			//$VPatientsDB->loadHomePage();
-			//$this->showAllPatients();
-			//$VPatientsDB->showHomePage();
 		}
 
 	}
-
-	/*private function showHomeDB(){ //non serve
-		$VPatientsDB=Usingleton::getInstance('VPatientsDB');
-		$VPatientsDB->loadHomePage();
-		$VPatientsDB->showHomePage();
-	}*/
-
-	/*public function loadMainPage(){
-
-		$VPatientsDB=Usingleton::getInstance('VPatientsDB');
-		//$this->fillArray();
-
-		$action=$VPatientsDB->get('action');
-		switch($action) {
-
-			case 'insert':
-			$this->insertPatient();
-			break;
-
-			case 'search':
-			$this->searchPatient();
-			break;
-
-			case 'getFullData':
-			$this->showPatientDetails();
-			break;
-
-			case 'printReport':
-			$this->printReport();
-			break;
-
-			case 'modify':
-			$this->modifyPatient();
-			break;
-
-			case 'delete':
-			$this->deletePatient();
-			break;
-
-			default:
-			$this->showAllPatients();
-			$VPatientsDB->loadHomePage();
-		}
-	}*/
-
 
 	private function showHomePage(){ // OK
 		$FDatabase=USingleton::getInstance('FDatabase');
@@ -316,34 +268,6 @@ class CPatientsDB{
             $username=$USession->get('username');
             $VPatientsDB->addLogoutButton($username);
         }
-
-
-// da scrivere su una classe esterna
-/*
-	function PrintField($title, $string){
-		$this->FieldTitle($title);
-		$this->FieldBody($string);
-	}
-
-	function FieldTitle($title){
-	    // Arial 11
-		$this->SetFont('Arial','B',11);
-		// Title
-		$this->Cell(0,5,$title,1,1,'L');
-		// Line break
-		$this->Ln(5);
-	}
-
-    function FieldBody($string){
-        // Times 12
-        $this->SetFont('Arial','',11);
-        // Output justified text
-        $this->MultiCell(0,5,$string);
-        // Line break
-        $this->Ln();
-    }*/
-
-
 }
 
 

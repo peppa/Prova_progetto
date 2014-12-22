@@ -53,13 +53,7 @@ class CHome {
 		}
 		
 	}
-        /*
-        public function setPage() {
-            $this->addLoginBox();
-            $this->addBody();
-            $this->showHomePage();
-        }*/
-
+        
 	private function addLoginBox(){
             $CLogin=USingleton::getInstance('CLogin');
             $VHome=USingleton::getInstance('VHome');
@@ -74,11 +68,6 @@ class CHome {
                 $VHome->loadLoginForm();
             }
 	}
-/*
-	private function addBody(){
-           $VHome=USingleton::getInstance('VHome');
-           $VHome->loadHomeBody();
-	}*/
 
 	private function showHomePage(){
             $VHome=USingleton::getInstance('VHome');
