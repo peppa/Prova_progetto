@@ -42,9 +42,7 @@ class CHome {
 			break;
 
 			case 'Contacts':
-                            $this->contactsPage();/*
-                            $VHome->loadContactsPage();
-                            $this->showHomePage();*/
+                            $this->contactsPage();
                         break;
 
 
@@ -61,6 +59,7 @@ class CHome {
             
             if ($CLogin->checkLoggedIn()) {
                 $username=$USession->get('username');
+                debug($username,"Username: ");
                 $VHome->showUser($username);
                 $VHome->loadLogoutButton($username);                
             }

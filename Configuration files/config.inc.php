@@ -34,10 +34,17 @@ $config['cookie']['holdtime']=60*60*24*60;
 //da settare email Webmaster
 $config['email_webmaster']='';
 
-function debug($var){
+/*
+ * Debug prints a description followed by the variable passed as argument.
+ * If there is no message in the argument, it will print only the variable content.
+ */
+function debug($var,$message){
     global $config;
     if ($config['debug']){
         echo '<pre>';
+        if($message){
+            print_r($message);
+        }
         print_r($var);
         echo '</pre>';
     }
