@@ -1,30 +1,28 @@
 <?php
 
-//require_once './Classes/View/View.php';
 
 class VHome extends View {
 	
     public function loadHomeBody(){
     	$body=$this->fetch('body_home.tpl');
-    	$this->assign('body',$body);
-    }
-
-    public function showHome(){
-    	$this->display('home.tpl');     //rinominare in main.tpl	
+    	$this->setBody($body);
     }
     
     public function showUser($user){
         $this->assign('username',$user);
     }
     
+    
+    //questo va messo in una Vservice con relativo controllore o è statica e la lasciamo qua?
     public function loadServicesPage(){
         $about=$this->fetch('services.tpl');
-        $this->assign('body',$about);
+        $this->setBody($about);
     }
     
+    //questo va messo in una VContact con relativo controllore o è statica e la lasciamo qua?
     public function loadContactsPage(){
         $about=$this->fetch('contact.tpl');
-        $this->assign('body',$about);
+        $this->setBody($about);
     }
 
 }

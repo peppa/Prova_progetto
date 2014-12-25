@@ -2,18 +2,17 @@
 
 class VLogin extends View {
 
-	public function welcomePage($message){ //riunire le 2 funzioni in una sola
+    //cosi non va bene, il messaggio deve esse html..
+	public function welcomePage(){ 
+            $message="login effettuato con successo";
             $this->assign('body',$message);
 	}
-
-	public function errorPage($error){
+        
+    //idem a sopra
+	public function errorPage(){
+            $error="user o pass non corretti";
             $this->assign('body',$error);
+            //QUA UGUALE A SOPRA.. PORCO DIO
 	}
 
-	/*public function homePage(){
-		$this->loadLoginForm();
-		$body=$this->fetch('body_home.tpl');
-    	$this->assign('body',$body);
-    	$this->display('home.tpl');
-	}*/
 }

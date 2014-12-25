@@ -3,14 +3,16 @@
 class VRegistration extends View {
     
     public function alreadyRegistered($message){ //implementare in view
-        $this->assign('body',$message );
+        $this->setBody($message );
+        //funzione mai chiamata???????????
     }
     
+    //non deve fa la showPage
     public function loadRegistrationForm(){
         $body=$this->fetch('body_registration.tpl');
-        $this->assign('body',$body);
+        $this->setBody($body);
         $this->loadLoginForm();
-        $this->showHome();
+        $this->showPage();
     }
 }
 

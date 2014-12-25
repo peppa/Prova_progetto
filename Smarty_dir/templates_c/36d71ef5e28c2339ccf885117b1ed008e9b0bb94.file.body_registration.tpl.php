@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-17 11:13:55
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-25 21:21:33
          compiled from "Smarty_dir\templates\body_registration.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1490654915763b24a46-04346182%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '36d71ef5e28c2339ccf885117b1ed008e9b0bb94' => 
     array (
       0 => 'Smarty_dir\\templates\\body_registration.tpl',
-      1 => 1418810573,
+      1 => 1419176333,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
   'unifunc' => 'content_54915763c172d1_06166106',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_54915763c172d1_06166106')) {function content_54915763c172d1_06166106($_smarty_tpl) {?><br>
 	<p>Compila la form per registrarti</p>

@@ -8,10 +8,10 @@ class CRegistration {
             $VRegistration= USingleton::getInstance('VRegistration');
             
             if ( $USession->get('username') ) {
-                $mess="Sei gi&agrave registrato";
+                $mess="Sei gi&agrave registrato"; //non va bene così, sto messaggio ta stà in un template o in una V al massimo
                 $VRegistration->showMessage($mess);
                 $VRegistration->loadLogoutButton();
-                $VRegistration->showHome();                
+                $VRegistration->showPage();                
             }
             else {
                 $action=$VRegistration->get('action');
@@ -53,6 +53,6 @@ class CRegistration {
             $message="Registrazione avvenuta con successo";
             $VRegistration->showMessage($message);
             $VRegistration->loadLoginForm();
-            $VRegistration->showHome();
+            $VRegistration->showPage();
         }	
 }

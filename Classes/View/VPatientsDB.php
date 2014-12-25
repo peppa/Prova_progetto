@@ -1,24 +1,20 @@
 <?php
-//require_once './Classes/View/View.php';
 
 class VPatientsDB extends View {
 
     public function loadHomePage(){
     	$body=$this->fetch('body_DB.tpl');
-    	$this->assign('body',$body);
+    	$this->setBody($body);
     }
 
-    public function showHomePage(){
-    	$this->display('home.tpl');  //rinominare in main.tpl
-    }
+
     
     public function showHomeDB($arrayPat,$link){
         $this->assign('people',$arrayPat);
         $this->assign('part1',$link);
         $body=$this->fetch('body_DB.tpl');
-    	$this->assign('body',$body);        
-        //$this->loadLogoutButton();
-        $this->showHomePage();
+    	$this->setBody($body);
+        $this->showPage();
     }
     
     public function showPatientDetail($arrayInfo){
@@ -37,23 +33,20 @@ class VPatientsDB extends View {
         $this->assign('link',md5($arrayInfo['CF']));
         
         $body=$this->fetch('patient_detail.tpl');
-        $this->assign('body',$body);
-        
-        //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->setBody($body);
+
+        $this->showPage();
     }
     
     public function showInsertForm(){
         $body=$this->fetch('body_insertPatient.tpl');
-        $this->assign('body',$body);
-        //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->setBody($body);
+        $this->showPage();
     }
     
     public function showMessage($mess){
         $this->assign('body',$mess);
-        //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->showPage();
     }
     
     public function showSearchResult($message,$patients,$link,$numResults){
@@ -64,14 +57,14 @@ class VPatientsDB extends View {
         $body=$this->fetch('body_resultSearch.tpl');
         $this->assign('body',$body);
         //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->showPage();
     }
     
     public function showSerachForm(){
         $body=$this->fetch('body_searchPatient.tpl');
         $this->assign('body',$body);
         //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->showPage();
     }
     
     public function showReportFields($link){
@@ -79,7 +72,7 @@ class VPatientsDB extends View {
         $body=$this->fetch('body_reportFields.tpl');
         $this->assign('body',$body);
        // $this->loadLogoutButton();
-        $this->showHomePage();
+        $this->showPage();
     }
     
     public function showModPage($arrayRow){
@@ -109,7 +102,7 @@ class VPatientsDB extends View {
         $body=$this->fetch('body_modifyPatient.tpl');
         $this->assign('body',$body);        
         //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->showPage();
     }
     
     public function showConfirmPage($cf){
@@ -117,7 +110,7 @@ class VPatientsDB extends View {
         $body=$this->fetch('body_confirmPage.tpl');
         $this->assign('body',$body);
         //$this->loadLogoutButton();
-        $this->showHomePage();
+        $this->showPage();
     }
     
     public function addLogoutButton($user){

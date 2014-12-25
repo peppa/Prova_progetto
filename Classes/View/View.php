@@ -1,7 +1,5 @@
 <?php
 
-require_once './lib/smarty/Smarty.class.php';
-
 Class View extends Smarty {
 
 	public function __construct() {
@@ -36,14 +34,24 @@ Class View extends Smarty {
         //$this->assign('username',$user);
     }
 
-    public function showHome(){
-    	$this->display('home.tpl');     //rinominare in main.tpl	
+    public function showPage(){
+    	$this->display('mainPage.tpl');     
     }
     
+    //stiamo scherzando??? non si fa sicuramente così...
+    /*
+     * secondo me la strada giusta per farlo è creare un .tpl per i messaggi di errore ed uno per i messaggi di conferma
+     * in modo da distinguerli. li dentro il contenuto del messaggio sarà una variabile smarty $messaggio che cambia a 
+     * seconda del messaggio da visualizzare.
+     * e sicuramente non possiamo farlo facendo scomparire il body in questa maniera... va un attimo pensato meglio,
+     * per ora lascio così finche non ne parliamo
+     */
     public function showMessage($message){
         $this->assign('body',$message);
     }
-
-
-
+    
+    public function setBody($body){
+        $this->assign('body',$body);
+    }
+    
 }

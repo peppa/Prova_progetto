@@ -23,7 +23,7 @@ class CLogin{
                     $VLogin->loadLoginForm();
                     $this->showErrorPage();
 		}
-                $VLogin->showHome();
+                $VLogin->showPage();
 	}
 
 	public function logout(){
@@ -33,7 +33,7 @@ class CLogin{
                 
                 $VLogin->loadLoginForm();
                 $VLogin->assign('body',"logout effettuato con successo");
-		$VLogin->showHome();
+		$VLogin->showPage();
 	}
         
         public function checkLoggedIn(){
@@ -49,14 +49,12 @@ class CLogin{
         
         public function showWelcomePage(){  //riunire in un'unica funzione
             $VLogin=  USingleton::getInstance('VLogin');
-            $message="login effettuato con successo";
-            $VLogin->WelcomePage($message);
+            $VLogin->WelcomePage();
         }
         
         public function showErrorPage(){
             $VLogin=  USingleton::getInstance('VLogin');
-            $message="user o pass non corretti";
-            $VLogin->errorPage($message);
+            $VLogin->errorPage();
         }
         
         

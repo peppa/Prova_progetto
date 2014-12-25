@@ -72,14 +72,14 @@ class CHome {
             $VHome=USingleton::getInstance('VHome');
             $VHome->loadHomeBody();
             $this->addLoginBox();
-            $VHome->showHome();
+            $VHome->showPage();
 	}
         
         public function contactsPage(){
             $VHome=  USingleton::getInstance('VHome');
             $VHome->loadContactsPage();
             $this->addLoginBox();
-            $VHome->showHome();
+            $VHome->showPage();
         }
         
         public function checkUser(){//solo il medico ha accesso a questa sezione
@@ -99,14 +99,14 @@ class CHome {
                     $this->addLoginBox();
                     $message="Solo il medico pu&oacute accedere a questa sezione";
                     $VHome->showMessage($message);
-                    $VHome->showHome();
+                    $VHome->showPage();
                 }
             }
             else {//utente non loggato
                 $this->addLoginBox();
                 $message="Per accedere al DB &eacute necessario effettuare il login";
                     $VHome->showMessage($message);
-                    $VHome->showHome();
+                    $VHome->showPage();
             }
         }
 
