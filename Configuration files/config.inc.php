@@ -22,10 +22,10 @@ $config['smarty']['caching']=FALSE;
 //MYSQL:
 //attivare per abilitare il debug del mysql
 $config['debug']=TRUE;
-$config['mysql']['user'] = 'root';
-$config['mysql']['password'] = 'pippo';
-$config['mysql']['host'] = 'localhost';
-$config['mysql']['database'] = 'Clinica';
+$config['mysql']['user'] = 'clinicard';
+$config['mysql']['password'] = 'splashnabbo';
+$config['mysql']['host'] = 'db4free.net';
+$config['mysql']['database'] = 'clinicard';
 
 //
 $config['cookie']['holdtime']=60*60*24*60;
