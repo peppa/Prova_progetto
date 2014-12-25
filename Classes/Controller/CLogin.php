@@ -9,7 +9,6 @@ class CLogin{
 		$user=$VLogin->get('username');
 		$pass=$VLogin->get('password');
                 $keep=$VLogin->get('keepLogged');
-                var_dump($keep);
 		if($keep=="yes") {$remember=true;}  
 		else {$remember=false;}
 		$USession->keepAccess($remember);
