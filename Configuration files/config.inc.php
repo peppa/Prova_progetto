@@ -26,6 +26,12 @@ $config['mysql']['user'] = 'clinicard';
 $config['mysql']['password'] = 'splashnabbo';
 $config['mysql']['host'] = 'db4free.net';
 $config['mysql']['database'] = 'clinicard';
+/*
+$config['mysql']['user'] = 'root';
+$config['mysql']['password'] = 'pippo';
+$config['mysql']['host'] = 'localhost';
+$config['mysql']['database'] = 'clinica';
+ */
 
 //
 $config['cookie']['holdtime']=60*60*24*60;
