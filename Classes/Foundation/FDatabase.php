@@ -7,7 +7,13 @@ class FDatabase extends mysqli{
 	public function __construct(){
 		global $config;
 		parent::__construct($config['mysql']['host'],$config['mysql']['user'],$config['mysql']['password'],$config['mysql']['database']);
-		//mysql_connect();
+		
+                /* check DB connection */
+                if ($this->connect_errno) {
+                    debug("Error reaching DB: ".$this->connect_error);
+                }else{
+                    debug("DBonnection estabilished successfully");
+                }
 
 	}
 
@@ -15,18 +21,15 @@ class FDatabase extends mysqli{
 		$query1="INSERT INTO `clinica`.`utenti` (`Nome`, `Cognome`, `Codice Fiscale`, `Email`, `Username`, `Password`, `Medico`)";
 		$query2="VALUES ('".$field1."','".$field2."','".$field3."','".$field4."','".$field5."','".$field6."','0')";
 		$query=$query1." ".$query2;
-		//var_dump($query);
-		//mysql_query($query);
 		$this->query($query);
 
 	}
-
-	public function queryDb($passedQuery){
-		$this->query($passedQuery);
-	}
-
-	public function queryDbSelect($passedQuery){
-		$result=$this->query($passedQuery);
+        
+        //override to add debug function
+        public function query($passedQuery,$resultmode=NULL){
+                $result=parent::query($passedQuery, $resultmode);
+                debug($passedQuery);
+                debug($this->error);
 		return $result;
 	}
 
@@ -40,22 +43,6 @@ class FDatabase extends mysqli{
                     if ($pass==$result['Password']) return true;
                     else return false;
                 }
-                
-		/*while ( $row=$res->fetch_assoc() ){
-			$value=$row['Password'];
-		}*/
-
-		//if ($pass==$value) return true;
-		//else return false;*/
-
-
-
-		//if(count($res)!=0) $result=true;
-		//else $result=false;
-		/*$key=$this->getByUsername($user);
-		if($key!=false && $password==$key->getPassword()) {$result=true;}
-		else {$result=false;}*/
-//		return $result;
 
 	}
         

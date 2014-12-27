@@ -22,16 +22,17 @@ $config['smarty']['caching']=FALSE;
 //MYSQL:
 //attivare per abilitare il debug del mysql
 $config['debug']=TRUE;
+/*
 $config['mysql']['user'] = 'clinicard';
 $config['mysql']['password'] = 'splashnabbo';
 $config['mysql']['host'] = 'db4free.net';
 $config['mysql']['database'] = 'clinicard';
-/*
+*/
 $config['mysql']['user'] = 'root';
 $config['mysql']['password'] = 'pippo';
 $config['mysql']['host'] = 'localhost';
 $config['mysql']['database'] = 'clinica';
- */
+ 
 
 //
 $config['cookie']['holdtime']=60*60*24*60;
@@ -44,13 +45,10 @@ $config['email_webmaster']='';
  * Debug prints a description followed by the variable passed as argument.
  * If there is no message in the argument, it will print only the variable content.
  */
-function debug($var,$message){
+function debug($var){
     global $config;
     if ($config['debug']){
         echo '<pre>';
-        if($message){
-            print_r($message);
-        }
         print_r($var);
         echo '</pre>';
     }

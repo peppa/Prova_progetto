@@ -240,7 +240,7 @@ class CPatientsDB{
 	private function fillArray(){ //NOT OK non servirà più con le classi Entity
 		$FDatabase=Usingleton::getInstance('FDatabase');
 		$query="SELECT * FROM `pazienti`";
-		$result=$FDatabase->queryDbSelect($query);
+		$result=$FDatabase->query($query);
 		while ( $row=$result->fetch_assoc() ){
 			$this->patientsArray[]=array('name'=>$row['Nome'],
 				                     'surname'=>$row['Cognome'],

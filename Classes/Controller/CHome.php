@@ -59,7 +59,7 @@ class CHome {
             
             if ($CLogin->checkLoggedIn()) {
                 $username=$USession->get('username');
-                debug($username,"Username: ");
+                debug('username: '.$username);
                 $VHome->showUser($username);
                 $VHome->loadLogoutButton($username);                
             }
