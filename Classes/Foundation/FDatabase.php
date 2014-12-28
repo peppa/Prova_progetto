@@ -30,6 +30,7 @@ class FDatabase extends mysqli{
                 $result=parent::query($passedQuery, $resultmode);
                 debug($passedQuery);
                 debug($this->error);
+                debug('Numero risultati: '.$this->affected_rows);
 		return $result;
 	}
 
