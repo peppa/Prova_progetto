@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-21 16:41:38
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-27 11:01:35
          compiled from "Smarty_dir\templates\body_DB.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3030754804680db1215-23766542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f62ef778cdc02c7852c0e51b7a8ba204c26b82d' => 
     array (
       0 => 'Smarty_dir\\templates\\body_DB.tpl',
-      1 => 1419176333,
+      1 => 1419674491,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'people' => 0,
     'patient' => 0,
-    'part1' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -59,10 +58,10 @@ $_smarty_tpl->tpl_vars['patient']->_loop = true;
 	    <li> <?php echo $_smarty_tpl->tpl_vars['patient']->value['name'];?>
  <?php echo $_smarty_tpl->tpl_vars['patient']->value['surname'];?>
  <?php echo $_smarty_tpl->tpl_vars['patient']->value['cf'];?>
+ <?php echo $_smarty_tpl->tpl_vars['patient']->value['dateBirth'];?>
 
-	    <a href="<?php echo $_smarty_tpl->tpl_vars['part1']->value;?>
-<?php echo $_smarty_tpl->tpl_vars['patient']->value['link'];?>
-">vai </a>
+                <button><a href="index.php?control=manageDB&action=getFullData&show=<?php echo $_smarty_tpl->tpl_vars['patient']->value['link'];?>
+">vai </a></button> <!-- part1 può essere sostituito dal valore perchè è statico -->
 	    </li>
 	    <br>
 	    <?php } ?>

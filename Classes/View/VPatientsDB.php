@@ -9,9 +9,9 @@ class VPatientsDB extends View {
 
 
     
-    public function showHomeDB($arrayPat,$link){
+    public function showHomeDB($arrayPat){
         $this->assign('people',$arrayPat);
-        $this->assign('part1',$link);
+        //$this->assign('part1',$link); 
         $body=$this->fetch('body_DB.tpl');
     	$this->setBody($body);
         $this->showPage();
