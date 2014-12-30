@@ -2,11 +2,6 @@
 
 class VRegistration extends View {
     
-    public function alreadyRegistered($message){ //implementare in view
-        $this->setBody($message );
-        //funzione mai chiamata???????????
-    }
-    
     public function theUserIsLoggedYet() {
         return "Sei già loggato, effettua logout prima di registrare un nuovo utente";
         

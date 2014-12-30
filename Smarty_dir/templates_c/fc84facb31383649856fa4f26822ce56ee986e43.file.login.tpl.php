@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-21 16:39:27
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-30 18:33:40
          compiled from "Smarty_dir\templates\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:273805480467fcc0467-97140706%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fc84facb31383649856fa4f26822ce56ee986e43' => 
     array (
       0 => 'Smarty_dir\\templates\\login.tpl',
-      1 => 1419176333,
+      1 => 1419960819,
       2 => 'file',
     ),
   ),
@@ -37,6 +37,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <div>
   <form method="POST" action="index.php?control=recoverPass">
-    <a href=""> Password dimenticata ? <a>
+    <a href=""> Password dimenticata ? </a>
   </form>
 </div><?php }} ?>

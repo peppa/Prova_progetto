@@ -16,6 +16,6 @@
 
 <div>
   <form method="POST" action="index.php?control=recoverPass">
-    <a href=""> Password dimenticata ? <a>
+    <a href=""> Password dimenticata ? </a>
   </form>
 </div>
