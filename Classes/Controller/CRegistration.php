@@ -1,41 +1,37 @@
 <?php
 
 class CRegistration {
-        
-        public function newUser(){
+    private $bodyHTML;
+
+
+    public function newUser(){
             $VRegistration=USingleton::getInstance('VRegistration');
             $USession=USingleton::getInstance('USession');
             $VRegistration= USingleton::getInstance('VRegistration');
+            $this->bodyHTML=$VRegistration->loadRegistrationForm();
             
             if ( $USession->get('username') ) {
-                $mess="Sei gi&agrave registrato"; //non va bene così, sto messaggio ta stà in un template o in una V al massimo
+                $this->bodyHTML=$VRegistration->theUserIsLoggedYet();
+                /*$mess="Sei gi&agrave registrato"; //non va bene così, sto messaggio ta stà in un template o in una V al massimo
                 $VRegistration->showMessage($mess);
-                $VRegistration->loadLogoutButton();
-                $VRegistration->showPage();                
+                $VRegistration->loadLogoutButton();*/
+                //$VRegistration->showPage();                
             }
             else {
                 $action=$VRegistration->get('action');
-                switch ($action) {
-                    
-                    case 'loadForm':
+                if ($action=="addUser") {
+                    $this->addNewUser();
+               }else {
                         $this->loadRegForm();
-                    break;
-                
-                    case 'addUser':
-                        $this->addNewUser();
-                    break;
-                
-                    default:
-                        $this->loadRegForm();
-                
                 }
             }
+            return$this->bodyHTML;
                 
         }
         
         public function loadRegForm(){
             $VRegistration=  USingleton::getInstance('VRegistration');
-            $VRegistration->loadRegistrationForm();
+            $this->bodyHTML=$VRegistration->loadRegistrationForm();
         }
         
         public function addNewUser(){
@@ -48,11 +44,10 @@ class CRegistration {
 	    $mail=$VRegistration->get('email');
 	    $user=$VRegistration->get('username');
 	    $pass=$VRegistration->get('password');
+            //se inserisco un utente che esiste già so cazzi.. devo fa i controlli prima
             $FDatabase->insertUser($name,$surname,$cf,$mail,$user,$pass);
             
-            $message="Registrazione avvenuta con successo";
-            $VRegistration->showMessage($message);
-            $VRegistration->loadLoginForm();
-            $VRegistration->showPage();
+            //$VRegistration->showMessage($message);
+            $this->bodyHTML=$VRegistration->regSuccess();
         }	
 }

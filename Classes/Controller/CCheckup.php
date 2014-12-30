@@ -2,8 +2,8 @@
 
 class CCheckup {
     
-    public function reserveCheckup() {
-        echo "prenotazione visita";
+    public function getCheckupBody() {
+        return "IN ALLESTIMENTO";
     }
     
     

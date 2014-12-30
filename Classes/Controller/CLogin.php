@@ -16,14 +16,14 @@ class CLogin{
 
                     $USession->login($user,$pass);
                     $VLogin->loadLogoutButton();
-                    $this->showWelcomePage();
+                    return $this->WelcomePage();//non ritorna un cazzo,..
                 }
 
 		else  {/*user o pass non corretti*/
                     $VLogin->loadLoginForm();
-                    $this->showErrorPage();
+                    return $this->ErrorPage();//non ritorna un cazzo..
 		}
-                $VLogin->showPage();
+                //$VLogin->showPage();
 	}
 
 	public function logout(){
@@ -33,7 +33,7 @@ class CLogin{
                 
                 $VLogin->loadLoginForm();
                 $VLogin->assign('body',"logout effettuato con successo");
-		$VLogin->showPage();
+		//$VLogin->showPage();
 	}
         
         public function checkLoggedIn(){
@@ -47,14 +47,14 @@ class CLogin{
             }
         }
         
-        public function showWelcomePage(){  //riunire in un'unica funzione
+        public function WelcomePage(){  //riunire in un'unica funzione
             $VLogin=  USingleton::getInstance('VLogin');
-            $VLogin->WelcomePage();
+            return $VLogin->WelcomePage();
         }
         
-        public function showErrorPage(){
+        public function ErrorPage(){
             $VLogin=  USingleton::getInstance('VLogin');
-            $VLogin->errorPage();
+            return $VLogin->errorPage();
         }
         
         

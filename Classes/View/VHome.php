@@ -3,9 +3,9 @@
 
 class VHome extends View {
 	
-    public function loadHomeBody(){
+    public function getHomeBody(){
     	$body=$this->fetch('body_home.tpl');
-    	$this->setBody($body);
+    	return$body;
     }
     
     public function showUser($user){
@@ -14,15 +14,15 @@ class VHome extends View {
     
     
     //questo va messo in una Vservice con relativo controllore o è statica e la lasciamo qua?
-    public function loadServicesPage(){
+    public function getServicesBody(){
         $about=$this->fetch('services.tpl');
-        $this->setBody($about);
+        return $about;
     }
     
     //questo va messo in una VContact con relativo controllore o è statica e la lasciamo qua?
-    public function loadContactsPage(){
+    public function getContactsBody(){
         $about=$this->fetch('contact.tpl');
-        $this->setBody($about);
+        return $about;
     }
 
 }
