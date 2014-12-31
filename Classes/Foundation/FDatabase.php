@@ -68,12 +68,12 @@ class FDatabase extends mysqli{
                 return $cfPatient;            
         }
         
-        public function insertNewPatient($array){
+        /*public function insertNewPatient($array){ va spostato in FPatient
             $query1="INSERT INTO `clinica`.`pazienti`(`Nome`, `Cognome`, `Sesso`, `DataNascita`, `Codice Fiscale`, `DataVisita`, `Anamnesi`, `Esame Obiettivo`, `Conclusione`, `Prescrizione Esami`, `Terapia`, `Controllo`)";
             $query2="VALUES ('".$array['name']."','".$array['surname']."','".$array['gender']."','".$array['dateBirth']."','".$array['CF']."','".$array['dateCheck']."','".$array['medHistory']."','".$array['medExam']."','".$array['conclusions']."','".$array['toDoExams']."','".$array['terapy']."','".$array['checkup']."')";
             $query=$query1." ".$query2;
             $this->query($query);            
-        }
+        }*/
         
         public function findPatient($key){
             $query="SELECT `Nome`,`Cognome`,`Codice Fiscale` FROM `pazienti` WHERE `Nome`='".$key."' or `Cognome`='".$key."' or `Codice Fiscale`='".$key."'";

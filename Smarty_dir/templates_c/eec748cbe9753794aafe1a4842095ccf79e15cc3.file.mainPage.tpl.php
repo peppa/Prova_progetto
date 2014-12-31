@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-30 18:32:55
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-30 23:14:59
          compiled from "Smarty_dir\templates\mainPage.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:4481549c6ae68b10a2-42401109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eec748cbe9753794aafe1a4842095ccf79e15cc3' => 
     array (
       0 => 'Smarty_dir\\templates\\mainPage.tpl',
-      1 => 1419960729,
+      1 => 1419960964,
       2 => 'file',
     ),
   ),
@@ -43,62 +43,64 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script src="js/responsiveslides.min.js"></script>
 		  
-	</head>
-	<body>
-            <div class="header">
-                <div class="wrap">
-                    <div class="logo">
-                        <a href="index.php"><img src="images/logo.png" title="logo" /></a>
-                    </div>
+    </head>
+    
+    <body>
+        <div class="header">
+            <div class="wrap">
+                <div class="logo">
+                    <a href="index.php"><img src="images/logo.png" title="logo" /></a>
+                </div>
 
 <!-- login -->
-                    <div>
-                        <?php echo $_smarty_tpl->tpl_vars['loginBox']->value;?>
+                <div>
+                    <?php echo $_smarty_tpl->tpl_vars['loginBox']->value;?>
 
-                    </div>
-
-				    
-	            
+                </div>
 
 
-		</div>
-		<div class="clear"> </div>
+
+
+
             </div>
-	
-            <div class="topnav">
-                <ul id="topnav">
-                    <li class="nav_top">
-                        <a href="index.php">Home</a>
-                    </li>
-                    <li class="nav_top">
-                        <a href="index.php?control=manageDB">DB</a>
-                    </li>
-                    <li class="nav_top">
-                        <a href="index.php?control=Checkup">Prenota visita</a>
-                    </li>
-                    <li class="nav_top">
-                        <a href="index.php?control=Registration">Registrazione</a>
-                    </li>
-				       
-                    <li class="nav_top">
-                        <a href="index.php?control=Contacts">Contatti</a>
-                    </li>
-    		</ul>
-            </div>
-                <?php echo $_smarty_tpl->tpl_vars['body']->value;?>
+            <div class="clear"> </div>
+        </div>
 
-            
-            <div class="footer">
-				<div class="left-content">
-					<a href="index.php"><img src="images/logo1.png" title="logo" /></a>
-				</div>
-				<div class="right-content">
-					<p>Healthy  &#169	 All Rights Reserved | Design By <a href="http://w3layouts.com/">W3Layouts</a></p>
-				</div>
-				<div class="clear"> </div>
-			</div>
-		</div>
-	</body>
+        <div class="topnav">
+            <ul id="topnav">
+                <li class="nav_top">
+                    <a href="index.php">Home</a>
+                </li>
+                <li class="nav_top">
+                    <a href="index.php?control=manageDB">DB</a>
+                </li>
+                <li class="nav_top">
+                    <a href="index.php?control=Checkup">Prenota visita</a>
+                </li>
+                <li class="nav_top">
+                    <a href="index.php?control=Registration">Registrazione</a>
+                </li>
+
+                <li class="nav_top">
+                    <a href="index.php?control=Contacts">Contatti</a>
+                </li>
+            </ul>
+        </div>
+
+        <?php echo $_smarty_tpl->tpl_vars['body']->value;?>
+
+
+        <div class="footer">
+            <div class="left-content">
+                <a href="index.php"><img src="images/logo1.png" title="logo" /></a>
+            </div>
+            <div class="right-content">
+                <p>Healthy  &#169	 All Rights Reserved | Design By <a href="http://w3layouts.com/">W3Layouts</a></p>
+            </div>
+            <div class="clear"> </div>
+        </div>
+
+    </body>
 </html>
 
 <?php }} ?>

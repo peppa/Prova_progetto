@@ -7,6 +7,28 @@ class VRegistration extends View {
         
     }
     
+    //fare template per errore anche qui
+    public function getErrorHTML($error) {
+        return "ERRORE NEI DATI INSERITI: ".$error;
+        
+    }
+    
+    /**
+     * Returns an associative array with the inserted data
+     * 
+     * @return array Inserted data
+     */
+    public function getFormValues(){
+        return array(
+            "name"=>$this->get('name'),
+            "surname"=>$this->get('surname'),
+            "cf"=>$this->get('CF'),
+            "email"=>$this->get('email'),
+            "username"=>$this->get('username'),
+            "password"=>$this->get('password'),
+        );
+    }
+    
     /**
      * The message in case of registration success
      * 

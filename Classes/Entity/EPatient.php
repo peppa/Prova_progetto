@@ -29,7 +29,7 @@ class EPatient {
         return $this->cognome;
     }
     
-    public function getCf(){
+    public function getCF(){
         return $this->cf;
     }
     

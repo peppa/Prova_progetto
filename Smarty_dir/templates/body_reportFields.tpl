@@ -4,7 +4,7 @@
 		<br>
 	    <br>
 
-	    <form method="POST" action="index.php?control=manageDB&action=printReport&fields=sent&pat={$link}">
+	    <form method="POST" action="index.php?control=manageDB&action=printReport&fields=sent&pat={$patLink}&ch={$checkLink}">
 	    	<!-- Nome e Cognome, CF e Data di nascita vengono mostrati sempre -->
 
 	    	<input type="checkbox" name="allFields"/>Tutti
