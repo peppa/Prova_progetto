@@ -71,11 +71,12 @@ class CRegistration {
                 case "password":
                     $pass=$value;
                     if(!$this->validatePassword($pass)){
-                        $this->dataError("Username");
+                        $this->dataError("Password");
                     }
                     
                     break;
                 default :
+                    debug("L'Array ha restituito dei dati inattesi nome: ".$key." valore:".$value);
 
                     break;
             }
@@ -96,7 +97,8 @@ class CRegistration {
     public function validatePassword($password) {
         if (strlen($password)<5){
             return FALSE;
-        } 
+        }
+        return true;
     }
     
     //invece di fare in questa maniera barbara, si può fa na funzione error
@@ -107,6 +109,15 @@ class CRegistration {
         
     }
     
+    /**
+     * Validate the string format and after that it checks if there is yet an
+     * user registered with the same CF. The archive is checked lastly to reduce
+     * load on serverside. If the string is ok returns TRUE, if it's not
+     * returns FALSE
+     * 
+     * @param string $cf
+     * @return boolean TRUE means valid CF string. FALSE if it's not a valid CF.
+     */
     public function checkCF($cf){
      if($cf=='')
 	return false;
@@ -170,6 +181,11 @@ class CRegistration {
 
     if( chr($s%26+ord('A'))!=$cf[15] )
 	return false;
+    //check if the CF is yet in the data archive
+    $FUtente=  USingleton::getInstance("FUtente");
+    if(!$FUtente->codiceFiscaleIsAvaiable($cf)){
+        return false;
+    }
 
     return true;
 }

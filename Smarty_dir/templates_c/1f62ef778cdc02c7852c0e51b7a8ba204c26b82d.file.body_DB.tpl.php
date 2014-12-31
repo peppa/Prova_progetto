@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-30 17:46:47
+<?php /* Smarty version Smarty-3.1.18, created on 2014-12-31 02:53:06
          compiled from "Smarty_dir\templates\body_DB.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3030754804680db1215-23766542%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1f62ef778cdc02c7852c0e51b7a8ba204c26b82d' => 
     array (
       0 => 'Smarty_dir\\templates\\body_DB.tpl',
-      1 => 1419759208,
+      1 => 1419974641,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,7 @@ $_smarty_tpl->tpl_vars['patient']->_loop = true;
  <?php echo $_smarty_tpl->tpl_vars['patient']->value['cf'];?>
  <?php echo $_smarty_tpl->tpl_vars['patient']->value['dateBirth'];?>
 
-                <button><a href="index.php?control=manageDB&action=getFullData&show=<?php echo $_smarty_tpl->tpl_vars['patient']->value['link'];?>
+                <button><a href="index.php?control=manageDB&action=getChecks&p=<?php echo $_smarty_tpl->tpl_vars['patient']->value['link'];?>
 ">vai </a></button> <!-- part1 può essere sostituito dal valore perchè è statico -->
 	    </li>
 	    <br>
