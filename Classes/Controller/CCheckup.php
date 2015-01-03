@@ -3,7 +3,9 @@
 class CCheckup {
     
     public function getCheckupBody() {
-        return "IN ALLESTIMENTO";
+        $VCheckup=  USingleton::getInstance("VCheckup");
+        $body=$VCheckup->getBody();
+        return $body;
     }
     
     
