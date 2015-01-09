@@ -9,15 +9,15 @@ class VPatientsDB extends View {
 
 
     
-    public function showHomeDB($arrayPat){
+    public function fetchHomePatients($arrayPat){
         $this->assign('people',$arrayPat);
         //$this->assign('part1',$link); 
-        $body=$this->fetch('body_DB.tpl');
-    	$this->setBody($body);
-        $this->showPage();
+        return $body=$this->fetch('body_DB.tpl');
+    	//$this->setBody($body);
+        //$this->showPage();
     }
     
-    public function showPatientDetail($arrayInfo){
+    public function getPatientDetail($arrayInfo){
         /*$this->assign('name',$arrayInfo['name']);
         $this->assign('surname',$arrayInfo['surname']);
         $this->assign('gender',$arrayInfo['gender']);
@@ -34,48 +34,53 @@ class VPatientsDB extends View {
         $this->assign('info',$arrayInfo);
         
         $body=$this->fetch('body_patientDetail.tpl');
-        $this->assign('body',$body);
+        return $body;
+        //$this->assign('body',$body);
         //$this->setBody($body);
 
-        $this->showPage();
+        //$this->showPage();
     }
     
     public function showInsertForm(){
         $body=$this->fetch('body_insertPatient.tpl');
-        $this->setBody($body);
-        $this->showPage();
+        return $body;
+        //$this->setBody($body);
+        //$this->showPage();
     }
     
-    public function showMessage($mess){ //implementare funz. generica in View che mostra il template
-        $this->assign('body',$mess);
-        $this->showPage();
+    public function getFormattedMessage($mess){ //implementare funz. generica in View che mostra il template
+        return $mess; //va fatto il template che ci mette un div apposito
+        //$this->showPage();
     }
     
-    public function showSearchResult($message,$patients,$numResults){
+    public function getSearchResult($message,$patients,$numResults){
         $this->assign('numResults',$numResults);
         $this->assign('message',$message);
         $this->assign('rows',$patients);
         $body=$this->fetch('body_resultSearch.tpl');
-        $this->assign('body',$body);
-        $this->showPage();
+        return $body;
+        //$this->assign('body',$body);
+        //$this->showPage();
     }
     
-    public function showSerachForm(){
+    public function fetchSerachForm(){
         $body=$this->fetch('body_searchPatient.tpl');
-        $this->assign('body',$body);
+        //$this->assign('body',$body);
         //$this->loadLogoutButton();
-        $this->showPage();
+        //$this->showPage();
+        return $body;
     }
     
-    public function showReportFields($cf,$ch){
+    public function getReportFields($cf,$ch){
         $this->assign('patLink',$cf);
         $this->assign('checkLink',$ch);
         $body=$this->fetch('body_reportFields.tpl');
-        $this->assign('body',$body);
-        $this->showPage();
+        //$this->assign('body',$body);
+        //$this->showPage();
+        return $body;
     }
     
-    public function showModPage($arrayRow){
+    public function getModPage($arrayRow){
         $this->assign('name',$arrayRow['name']);
 	$this->assign('surname',$arrayRow['surname']);
                                         
@@ -100,17 +105,19 @@ class VPatientsDB extends View {
         $this->assign('checkup',$arrayRow['checkup']);
         $this->assign('link',md5($arrayRow['cf']));
         $body=$this->fetch('body_modifyPatient.tpl');
-        $this->assign('body',$body);        
+        //$this->assign('body',$body);        
         //$this->loadLogoutButton();
-        $this->showPage();
+        //$this->showPage();
+        return $body;
     }
     
     public function showConfirmPage($cf){
         $this->assign('link',md5($cf));
         $body=$this->fetch('body_confirmPage.tpl');
-        $this->assign('body',$body);
+        //$this->assign('body',$body);
         //$this->loadLogoutButton();
-        $this->showPage();
+        //$this->showPage();
+        return $body;
     }
     
     public function addLogoutButton($user){
@@ -119,14 +126,15 @@ class VPatientsDB extends View {
         $this->assign('loginBox',$logBox);
     }
     
-    public function showPatientChecks($na,$sur,$array,$link){
+    public function getPatientChecks($na,$sur,$array,$link){
         $this->assign('pat',$link);
         $this->assign('PatChecks',$array);
         $this->assign('name',$na);
         $this->assign('surname',$sur);
         $body=$this->fetch('body_patientChecks.tpl');
-        $this->assign('body',$body);
-        $this->showPage();
+        //$this->assign('body',$body);
+        //$this->showPage();
+        return $body;
     }
     
     public function showCheckForm($cf,$n,$s){
@@ -134,8 +142,9 @@ class VPatientsDB extends View {
         $this->assign('name',$n);
         $this->assign('surname',$s);
         $body=$this->fetch('body_newVisit.tpl');
-        $this->assign('body',$body);
-        $this->showPage();
+        //$this->assign('body',$body);
+        //$this->showPage();
+        return $body;
     }
 
 }

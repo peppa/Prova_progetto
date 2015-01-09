@@ -64,19 +64,20 @@ class CHome {
             $docUsername=$row['Username'];
             if ( $USession->get('username')==$docUsername){
                 $CPatientsDB=USingleton::getInstance('CPatientsDB');
+                return $CPatientsDB->getBody();
             }
             else {//utente loggato ma non medico
                 $this->addLoginBox();
                 $message="Solo il medico pu&oacute accedere a questa sezione";
-                $VHome->showMessage($message);
-                $VHome->showPage();
+                return $VHome->getFormattedMessage($message);
+                //$VHome->showPage();
             }
         }
         else {//utente non loggato
             $this->addLoginBox();
             $message="Per accedere al DB &eacute necessario effettuare il login";
-            $VHome->showMessage($message);
-            $VHome->showPage();
+            return $VHome->getFormattedMessage($message);
+            //$VHome->showPage();
         }
     }
 
@@ -110,8 +111,7 @@ class CHome {
                 return FALSE;
 
             case 'manageDB':
-                $this->checkUser();
-                break;
+                return $this->checkUser();
 
             case 'Services':
                 return $VHome->getServicesBody();

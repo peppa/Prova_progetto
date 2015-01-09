@@ -17,6 +17,8 @@ class CPatientsDB{
      * @var type array
      */
     public $Visite=array();
+    
+    private $bodyHTML;
 
     
     /**
@@ -62,7 +64,7 @@ class CPatientsDB{
                         break;
 
 			default:
-			$this->showHomePage();   
+                            $this->getHomePatients();   
 		}
 
 	}
@@ -85,7 +87,7 @@ class CPatientsDB{
     /**
      * 
      */    
-    private function showHomePage(){ // OKv2
+    private function getHomePatients(){ // OKv2
         $VPatientsDB=Usingleton::getInstance('VPatientsDB');
         $USession=USingleton::getInstance('USession');
         
@@ -93,8 +95,8 @@ class CPatientsDB{
                     $Patients[$i]=array('name'=>$this->Pazienti[$i]->getName(),'surname'=>$this->Pazienti[$i]->getSurname(),'cf'=>$this->Pazienti[$i]->getCf(),'dateBirth'=>$this->Pazienti[$i]->getDataN(),'link'=>md5($this->Pazienti[$i]->getCf()));
                 }
                 
-                $this->addLogoutButton();
-                $VPatientsDB->showHomeDB($Patients);
+                //$this->addLogoutButton();
+                $this->bodyHTML=$VPatientsDB->fetchHomePatients($Patients);
     }
 
     /**
@@ -124,12 +126,12 @@ class CPatientsDB{
                     $FPatient->insertNewPatient($arrayPatient);
                     $FCheckup->insertNewCheckup($arrayCheck);
                     $message="Inserimento avvenuto con successo";
-                    $this->addLogoutButton();
-                    $VPatientsDB->showMessage($message);
+                    //$this->addLogoutButton();
+                    $this->bodyHTML=$VPatientsDB->getFormattedMessage($message);
 		}
 		else {
-                    $this->addLogoutButton();
-                    $VPatientsDB->showInsertForm();			
+                    //$this->addLogoutButton();
+                    $this->bodyHTML=$VPatientsDB->showInsertForm();			
 		}	
 	}
 
@@ -140,25 +142,24 @@ class CPatientsDB{
 		$VPatientsDB=Usingleton::getInstance('VPatientsDB');
                 
 		if($VPatientsDB->get('keyValue')==null) {
-                    $this->addLogoutButton();
-                    $VPatientsDB->showSerachForm();
+                    //$this->addLogoutButton();
+                    $this->bodyHTML=$VPatientsDB->fetchSerachForm();
 		}
 		else {
                     $FPatient=  USingleton::getInstance('FPatient');
 		    $searchKey=$VPatientsDB->get('keyValue');
                     $searchResult=$FPatient->findPatient($searchKey);
-                        $numResults=count($searchResult);
-			if ( $numResults!=0 ) {
-				$message="la ricerca ha prodotto ".$numResults." risultato/i";
-                                $this->addLogoutButton();
-                                $VPatientsDB->showSearchResult($message,$searchResult,$numResults);
-			}
-
-	        else {
-	        	$message="La ricerca non ha prodotto nessun risultato";
-                        $this->addLogoutButton();
-	        	$VPatientsDB->showMessage($message);
-	        }
+                    $numResults=count($searchResult);
+                    if ( $numResults!=0 ) {
+                            $message="la ricerca ha prodotto ".$numResults." risultato/i";//passiamo come messaggio con la funzione apposta? forse è meglio..
+                            //$this->addLogoutButton();
+                            $this->bodyHTML=$VPatientsDB->getSearchResult($message,$searchResult,$numResults);
+                    }
+                    else {
+                            $message="La ricerca non ha prodotto nessun risultato";
+                            //$this->addLogoutButton();
+                            $this->bodyHTML=$VPatientsDB->getFormattedMessage($message);
+                    }
 	    }
 	}
 
@@ -173,8 +174,8 @@ class CPatientsDB{
                 
                 $patientDetail=$this->buildInfoArray($encCF,$encCheck);
                 
-                $this->addLogoutButton();
-                $VPatientsDB->showPatientDetail($patientDetail);
+                //$this->addLogoutButton();
+                $this->bodyHTML=$VPatientsDB->getPatientDetail($patientDetail);
 	}
         
         /**
@@ -250,8 +251,8 @@ class CPatientsDB{
                 $patChecks[]=$this->Visite[$cfPaziente][$i]->getDateCheck(); //tutte le date delle visite del paziente
             }
             
-            $this->addLogoutButton();
-            $VPatientsDB->showPatientChecks($name,$surname,$patChecks,$encCF);
+            //$this->addLogoutButton();
+            $this->bodyHTML=$VPatientsDB->getPatientChecks($name,$surname,$patChecks,$encCF);
         }
 
 
@@ -277,8 +278,8 @@ class CPatientsDB{
                     $Updf->printPage($patInfo,$arrayPrint);
 		}
 		else {
-                    $this->addLogoutButton();
-                    $VPatientsDB->showReportFields($encCF,$encCH);			
+                    //$this->addLogoutButton();
+                    $this->bodyHTML=$VPatientsDB->getReportFields($encCF,$encCH);			
 		}
 	}
 
@@ -293,8 +294,8 @@ class CPatientsDB{
 		if ( $VPatientsDB->get('mod')!="completed" ) {
 			for ( $i=0;$i<count($this->getPatientsArray());$i++ ) { //usare while ?
 				if (md5($this->getPatientsArray()[$i]['cf'])==$VPatientsDB->get('mod')) {
-                                    $this->addLogoutButton();
-                                    $VPatientsDB->showModPage($this->getPatientsArray()[$i]);
+                                    //$this->addLogoutButton();
+                                    $this->bodyHTML=$VPatientsDB->getModPage($this->getPatientsArray()[$i]);
 				}
 			}
 		}
@@ -307,12 +308,12 @@ class CPatientsDB{
 				}
 			}
 			$FDatabase=Usingleton::getInstance('FDatabase');
-                        //passare valori a FDatabase invece che query ?
+                        //passare valori a FDatabase invece che query ? //davvero? non ci avrei mai pensato... XD
 			$query="UPDATE `pazienti` SET `Nome`='".$VPatientsDB->get('name')."',`Cognome`='".$VPatientsDB->get('surname')."',`Sesso`='".$VPatientsDB->get('gender')."',`DataNascita`='".$VPatientsDB->get('dateBirth')."',`DataVisita`='".$VPatientsDB->get('dateCheck')."',`Anamnesi`='".$VPatientsDB->get('medHistory')."',`Esame Obiettivo`='".$VPatientsDB->get('medExam')."',`Conclusione`='".$VPatientsDB->get('conclusions')."',`Prescrizione Esami`='".$VPatientsDB->get('toDoExams')."',`Terapia`='".$VPatientsDB->get('terapy')."',`Controllo`='".$VPatientsDB->get('checkup')."' WHERE `Codice Fiscale`='".$cfPatient."' ";
 			$FDatabase->query($query);
                         $message="modifica completata con successo";
-                        $this->addLogoutButton();
-                        $VPatientsDB->showMessage($message);
+                        //$this->addLogoutButton();
+                        $this->bodyHTML=$VPatientsDB->getFormattedMessage($message);
 		}
 	}
 
@@ -333,12 +334,12 @@ class CPatientsDB{
                         if ( $VPatientsDB->get('conf') ) {
                         $FDatabase->deletePatient($cfPatient);
                         $message="eliminazione completata con successo";
-                        $this->addLogoutButton();
-                        $VPatientsDB->showMessage($message);
+                        //$this->addLogoutButton();
+                        return $VPatientsDB->getFormattedMessage($message);
                         }
                         else {
-                            $this->addLogoutButton();
-                            $VPatientsDB->showConfirmPage($cfPatient);
+                            //$this->addLogoutButton();
+                            $this->bodyHTML=$VPatientsDB->showConfirmPage($cfPatient);
                         }
 
 		}
@@ -371,15 +372,15 @@ class CPatientsDB{
 				  'terapy'=>$_REQUEST['terapy'],
 				  'checkup'=>$_REQUEST['checkup']);
                 
-                $FCheckup->insertNewCheckup($arrayCheck);
-                $message="inserimento avvenuto con successo";
-                $this->addLogoutButton();
-                $VPatientsDB->showMessage($message);
+                $FCheckup->insertNewCheckup($arrayCheck);//magari fare una funzione che ritorna false se non lo puo inserire?
+                $message="inserimento avvenuto con successo";//e que è con successo solo se lo ha inserito?
+                //$this->addLogoutButton();
+                $this->bodyHTML=$VPatientsDB->getFormattedMessage($message);
                 
             }
             else { //carica form                
-                $this->addLogoutButton();
-                $VPatientsDB->showCheckForm($cfPat,$name,$surname);                
+                //$this->addLogoutButton();
+                $this->bodyHTML=$VPatientsDB->showCheckForm($cfPat,$name,$surname);                
             }
         }
         
@@ -392,6 +393,10 @@ class CPatientsDB{
             
             $username=$USession->get('username');
             $VPatientsDB->addLogoutButton($username);
+        }
+        public function getBody() {
+            return $this->bodyHTML;
+            
         }
 }
 
