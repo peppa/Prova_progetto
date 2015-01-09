@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-05 16:26:30
+<?php /* Smarty version Smarty-3.1.18, created on 2015-01-09 11:38:38
          compiled from "Smarty_dir\templates\body_searchPatient.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:226265481cea6bb8266-80085411%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'db9475b8e36675c49564c65d9ec6b5407aafb781' => 
     array (
       0 => 'Smarty_dir\\templates\\body_searchPatient.tpl',
-      1 => 1417793115,
+      1 => 1419176333,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
   'unifunc' => 'content_5481cea6be0a85_63446165',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5481cea6be0a85_63446165')) {function content_5481cea6be0a85_63446165($_smarty_tpl) {?><br>
 		Inserisci nome, cognome o codice fiscale del paziente

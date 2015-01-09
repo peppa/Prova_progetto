@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.18, created on 2014-12-16 09:53:14
+<?php /* Smarty version Smarty-3.1.18, created on 2015-01-09 11:38:30
          compiled from "Smarty_dir\templates\body_reportFields.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29953548ff2faf22f84-44492145%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1c332c328b38af5fe1dece324baf9fc693f58cd1' => 
     array (
       0 => 'Smarty_dir\\templates\\body_reportFields.tpl',
-      1 => 1418719723,
+      1 => 1420799833,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'variables' => 
-  array (
-    'link' => 0,
-  ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.18',
   'unifunc' => 'content_548ff2fb2e1872_35266080',
+  'variables' => 
+  array (
+    'patLink' => 0,
+    'checkLink' => 0,
+  ),
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_548ff2fb2e1872_35266080')) {function content_548ff2fb2e1872_35266080($_smarty_tpl) {?>
 		<br>
@@ -29,7 +30,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<br>
 	    <br>
 
-	    <form method="POST" action="index.php?control=manageDB&action=printReport&fields=sent&pat=<?php echo $_smarty_tpl->tpl_vars['link']->value;?>
+	    <form method="POST" action="index.php?control=manageDB&action=printReport&fields=sent&pat=<?php echo $_smarty_tpl->tpl_vars['patLink']->value;?>
+&ch=<?php echo $_smarty_tpl->tpl_vars['checkLink']->value;?>
 ">
 	    	<!-- Nome e Cognome, CF e Data di nascita vengono mostrati sempre -->
 
